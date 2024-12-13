@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://jogamp.org/deployment/maven"
+    }
+}
+
+dependencies {
+    // JOGL dependencies
+    implementation 'org.jogamp.jogl:jogl-all-main:2.4.0'
+    implementation 'org.jogamp.gluegen:gluegen-rt-main:2.4.0'
+    // JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+application {
+    mainClass = 'MultiverseSimulation' // Update if your main class is in a package
+}
+
+test {
+    useJUnitPlatform()
+}
